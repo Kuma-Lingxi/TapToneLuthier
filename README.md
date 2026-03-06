@@ -1,5 +1,3 @@
-# TapTone Luthier (Android)
-
 [🇫🇷 Français](#readme-fr) | [🇬🇧 English](#readme-en)
 
 <a id="readme-fr"></a>
