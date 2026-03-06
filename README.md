@@ -1,8 +1,8 @@
 # TapTone Luthier (Android)
 
-[🇫🇷 Français](#-TapTone-Luthier-Analyseur-de-fréquence-tap-tone) | [🇬🇧 English](#-TapTone-Luthier-Tap-Tone-Frequency-Analyzer)
+[🇫🇷 Français](#readme-fr) | [🇬🇧 English](#readme-en)
 
-
+<a id="readme-fr"></a>
 # TapTone Luthier - Analyseur de fréquence “tap tone”
 
 Un outil mobile pour les luthiers : enregistrer un tap sur une table d’harmonie / un barrage, estimer la fréquence de résonance dominante et suivre les changements au fil des ajustements (rabotage/ponçage).
@@ -125,7 +125,7 @@ MIT License — voir [LICENSE](./LICENSE).
 
 
 ---
-
+<a id="readme-en"></a>
 # TapTone Luthier - Tap Tone Frequency Analyzer
 
 A mobile tool for luthiers: record a tap on a guitar top/brace, estimate the dominant resonance frequency, and track changes over iterative carving.
