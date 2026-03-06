@@ -1,6 +1,6 @@
 # TapTone Luthier (Android)
 
-[🇫🇷 Français](#-Analyseur-de-fréquence) | [🇬🇧 English](#-Tap-Tone-Frequency-Analyzer)
+[🇫🇷 Français](#-TapTone-Luthier-Android—-Analyseur-de-fréquence-tap-tone) | [🇬🇧 English](#-TapTone-Luthier-Android-—Tap-Tone-Frequency-Analyzer)
 
 
 # TapTone Luthier (Android) — Analyseur de fréquence “tap tone”
@@ -119,11 +119,12 @@ Projet personnel démo/portfolio. Les suggestions et pull requests sont les bien
 ## Licence
 MIT License — voir [LICENSE](./LICENSE).
 
-
 ---
 
----
 
+
+
+---
 
 # TapTone Luthier (Android) — Tap Tone Frequency Analyzer
 
