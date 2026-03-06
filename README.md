@@ -1,3 +1,123 @@
+# TapTone Luthier (Android) — Analyseur de fréquence “tap tone”
+
+Un outil mobile pour les luthiers : enregistrer un tap sur une table d’harmonie / un barrage, estimer la fréquence de résonance dominante et suivre les changements au fil des ajustements (rabotage/ponçage).
+
+Ce dépôt est un projet démo/portfolio basé sur **React Native (Android)** + un petit **module natif Kotlin** pour capturer l’audio du micro en **PCM mono 16 bits**, puis estimer la fréquence via une approche **FFT** en JavaScript.
+
+---
+
+## Ce que fait l’application (MVP)
+
+- Enregistrer un court échantillon de tap (1–2 secondes) avec le micro du téléphone
+- Détecter automatiquement le segment du tap (seuil d’énergie simple)
+- Estimer la fréquence dominante (FFT + détection de pic)
+- Afficher :
+  - la fréquence dominante (Hz)
+  - un score de confiance (ratio énergie du pic / énergie totale)
+- Sauvegarder des mesures avec des notes (bois, gabarit, étape du barrage) et comparer l’historique
+
+---
+
+## Pourquoi ce projet
+
+Le réglage des barrages se fait souvent en tapant et en écoutant, ce qui est subjectif et difficile à reproduire.  
+Cette application propose une méthode simple et répétable pour **quantifier** la réponse au tap et **suivre les tendances** dans le temps.
+
+---
+
+## Pile technologique
+
+- **React Native (Android)**
+- **Module natif Kotlin** (Android `AudioRecord`) pour la capture audio brute
+- **DSP en JavaScript** :
+  - détection du tap (RMS / seuil d’énergie)
+  - fenêtre de Hann
+  - FFT
+  - détection de pic + estimation de confiance
+- Stockage : persistance locale de l’historique des mesures (MVP)
+
+---
+
+## Architecture (vue d’ensemble)
+
+1. **Capturer l’audio PCM** (mono, 16 bits) via le module Kotlin  
+2. Convertir le PCM en échantillons float côté JS  
+3. Détecter la zone du tap et découper une courte fenêtre  
+4. Appliquer la fenêtre + FFT  
+5. Extraire la fréquence dominante + confiance  
+6. Afficher le résultat et stocker les métadonnées de mesure
+
+---
+
+## Démarrage (Android)
+
+### Prérequis
+
+- Node.js (LTS)
+- Android Studio + Android SDK
+- JDK 17 (ou la version requise par le template RN utilisé)
+- Un téléphone Android physique (recommandé pour tester le micro)
+
+### Installation & exécution
+
+```bash
+cd app
+npm install
+npx react-native run-android
+```
+Astuce : si vous utilisez Yarn :
+```
+yarn && npx react-native run-android
+```
+
+---
+
+## Utilisation
+1. Ouvrir l’application sur un appareil Android
+2. Appuyer sur Record
+3. Taper une fois la table/barrage (tap court et net)
+4. L’application affiche la fréquence dominante (Hz) et la confiance
+5. Ajouter des notes (optionnel) puis Save
+6. Répéter après ajustement pour comparer l’évolution
+
+---
+
+## Précision & limites
+- Les résultats dépendent du bruit ambiant, du micro du téléphone et de la régularité du tap.
+- L’objectif est la répétabilité et le suivi de tendances, pas une calibration de laboratoire.
+- Pour de meilleurs résultats :
+    - enregistrer dans une pièce calme
+    - garder une distance et une force de tap constantes
+    - éviter les bruits de manipulation (ne pas toucher le téléphone pendant l’enregistrement)
+
+---
+
+## Feuille de route
+### Phase 1 — MVP micro du téléphone (actuel)
+- [ ] Module natif de capture PCM (AudioRecord)
+- [ ] Détection du segment de tap
+- [ ] FFT + estimation de la fréquence dominante
+- [ ] Historique des mesures + comparaison
+
+### Phase 2 — Intégration TapHammer (ESP32) (prochaine)
+- [ ] Source d’entrée BLE : recevoir des fréquences depuis un marteau ESP32 avec IMU
+- [ ] Pipeline de mesure unifié (micro ou BLE)
+- [ ] Indicateurs de stabilité améliorés
+
+---
+
+## Contribuer
+Projet personnel démo/portfolio. Les suggestions et pull requests sont les bienvenues.
+
+---
+
+## Licence
+MIT License — voir [LICENSE](./LICENSE).
+
+
+
+
+
 # TapTone Luthier (Android) — Tap Tone Frequency Analyzer
 
 A mobile tool for luthiers: record a tap on a guitar top/brace, estimate the dominant resonance frequency, and track changes over iterative carving.
