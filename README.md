@@ -3,7 +3,7 @@
 <a id="readme-fr"></a>
 # TapTone Luthier - Analyseur de fréquence “tap tone”
 
-Un outil mobile pour les luthiers : enregistrer un tap sur une table d’harmonie / un barrage, estimer la fréquence de résonance dominante et suivre les changements au fil des ajustements (rabotage/ponçage).
+Un outil mobile pour les luthiers : enregistrer un tap sur une table d’harmonie / un barrage, estimer la fréquence de résonance dominante et suivre les changements au fil des ajustements (rabotage/sculpture).
 
 Ce dépôt est un projet démo/portfolio basé sur **React Native (Android)** + un petit **module natif Kotlin** pour capturer l’audio du micro en **PCM mono 16 bits**, puis estimer la fréquence via une approche **FFT** en JavaScript.
 
